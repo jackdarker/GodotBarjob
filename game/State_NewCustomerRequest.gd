@@ -1,4 +1,4 @@
-extends 'res://core/FSM/State.gd'
+extends State
 
 func _on_enter_state():
 	pass

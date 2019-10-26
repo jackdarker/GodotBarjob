@@ -8,15 +8,62 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Barkeeper",
+"language": "GDScript",
+"path": "res://game/Barkeeper1.gd"
+}, {
+"base": "Node",
+"class": "Game",
+"language": "GDScript",
+"path": "res://game/game.gd"
+}, {
+"base": "Node",
+"class": "Menu_CustomerOrder",
+"language": "GDScript",
+"path": "res://game/Menu_CustomerOrder.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://core/FSM/State.gd"
+}, {
+"base": "Reference",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://core/FSM/StateMachine.gd"
+}, {
+"base": "Reference",
+"class": "StateMachineFactory",
+"language": "GDScript",
+"path": "res://core/FSM/StateMachineFactory.gd"
+}, {
+"base": "Node2D",
+"class": "Table",
+"language": "GDScript",
+"path": "res://game/BarTable1.gd"
+}, {
+"base": "Area2D",
+"class": "Waitress",
+"language": "GDScript",
+"path": "res://game/Waitress.gd"
+} ]
 _global_script_class_icons={
-
+"Barkeeper": "",
+"Game": "",
+"Menu_CustomerOrder": "",
+"State": "",
+"StateMachine": "",
+"StateMachineFactory": "",
+"Table": "",
+"Waitress": ""
 }
 
 [application]
 
 config/name="Barjob"
-run/main_scene="res://game/Menu_Main.tscn"
+run/main_scene="res://game/Bar1.tscn"
 config/icon="res://icon.png"
 
 [display]

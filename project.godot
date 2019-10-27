@@ -19,10 +19,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/game.gd"
 }, {
-"base": "Node",
+"base": "PopupDialog",
 "class": "Menu_CustomerOrder",
 "language": "GDScript",
 "path": "res://game/Menu_CustomerOrder.gd"
+}, {
+"base": "PopupDialog",
+"class": "Menu_NPCDialog",
+"language": "GDScript",
+"path": "res://game/Menu_NPCDialog.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -53,6 +58,7 @@ _global_script_class_icons={
 "Barkeeper": "",
 "Game": "",
 "Menu_CustomerOrder": "",
+"Menu_NPCDialog": "",
 "State": "",
 "StateMachine": "",
 "StateMachineFactory": "",

@@ -1,5 +1,5 @@
 class_name Menu_CustomerOrder
-extends Node
+extends PopupDialog
 
 var _placeOrder:bool setget set_placeOrder,get_PlaceOrder
 func set_placeOrder(placeOrder:bool):

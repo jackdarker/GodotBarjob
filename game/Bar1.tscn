@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/Bar1.gd" type="Script" id=1]
 [ext_resource path="res://game/HUD.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://art/Background/Bar1.svg" type="Texture" id=5]
 [ext_resource path="res://game/BarTable1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/Menu_CustomerOrder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/Menu_NPCDialog.tscn" type="PackedScene" id=8]
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
@@ -29,6 +30,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="Tables" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = -20
 
 [node name="BarTable1" parent="Tables" instance=ExtResource( 6 )]
@@ -47,3 +49,5 @@ margin_left = -175.0
 margin_top = -160.0
 margin_right = 175.0
 margin_bottom = 160.0
+
+[node name="Menu_NPCDialog" parent="." instance=ExtResource( 8 )]

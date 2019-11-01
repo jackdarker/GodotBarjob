@@ -9,10 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://core/Quest/Actor.gd"
+}, {
 "base": "Area2D",
 "class": "Barkeeper",
 "language": "GDScript",
 "path": "res://game/Barkeeper1.gd"
+}, {
+"base": "Node",
+"class": "DialogChoice",
+"language": "GDScript",
+"path": "res://core/Quest/DialogChoice.gd"
+}, {
+"base": "Node",
+"class": "DialogResponse",
+"language": "GDScript",
+"path": "res://core/Quest/DialogResponse.gd"
+}, {
+"base": "Node",
+"class": "DialogScene",
+"language": "GDScript",
+"path": "res://core/Quest/DialogScene.gd"
 }, {
 "base": "Node",
 "class": "Game",
@@ -49,13 +69,22 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/BarTable1.gd"
 }, {
+"base": "DialogScene",
+"class": "Tut1",
+"language": "GDScript",
+"path": "res://game/Dialogs/DialogTutorial1.gd"
+}, {
 "base": "Area2D",
 "class": "Waitress",
 "language": "GDScript",
 "path": "res://game/Waitress.gd"
 } ]
 _global_script_class_icons={
+"Actor": "",
 "Barkeeper": "",
+"DialogChoice": "",
+"DialogResponse": "",
+"DialogScene": "",
 "Game": "",
 "Menu_CustomerOrder": "",
 "Menu_NPCDialog": "",
@@ -63,6 +92,7 @@ _global_script_class_icons={
 "StateMachine": "",
 "StateMachineFactory": "",
 "Table": "",
+"Tut1": "",
 "Waitress": ""
 }
 

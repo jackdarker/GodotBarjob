@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   viewBox="0 0 26.458333 26.458334"
+   version="1.1"
+   id="svg19203"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="DialogBubble.svg">
+  <defs
+     id="defs19197" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="49.590023"
+     inkscape:cy="49.717902"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="1680"
+     inkscape:window-height="997"
+     inkscape:window-x="1592"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid19750" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata19200">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-270.54165)">
+    <path
+       style="opacity:1;fill:#fffafa;fill-opacity:1;stroke:#000000;stroke-width:0.5386315;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 4.7529189,270.81106 c -2.4837289,0 -4.48360315,2.08051 -4.48360315,4.66439 v 14.88916 c 0,0.54402 0.28570457,1.64278 0.54974926,2.46687 0.75155609,1.69903 1.32022359,3.2963 4.22471549,3.84569 -0.00183,-0.98487 0.00548,-2.46795 10e-8,-3.84568 H 21.705414 c 2.483729,0 4.483604,0.11701 4.483604,-2.46688 v -14.88916 c 0,-2.58388 -1.999875,-4.66439 -4.483604,-4.66439 z"
+       id="path23455"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssccccsssss" />
+  </g>
+</svg>

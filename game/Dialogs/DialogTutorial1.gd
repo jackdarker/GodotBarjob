@@ -30,10 +30,15 @@ func _HandleChoice(ActualStageID:int, ChoiceID:int):
 					_Stage.init(STAGE_END,"So no tutorial", _choices)
 				_:
 					_Stage.init(STAGE_TUTORIAL1,"You have to ask the customer...", _choices)
-		
+		STAGE_TUTORIAL1:
+			addChoice(0,"Next","")
+			_Stage.init(STAGE_END,"tutorial done", _choices)
 		STAGE_END:
 			scene_finished()
 			return
+		
+		_:
+			_Stage.init(STAGE_WELCOME,("unhandled stage {str}").format({"str":ActualStageID}),{})
 	
 	set_ActualStage(_Stage)
 	

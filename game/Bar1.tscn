@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game/Bar1.gd" type="Script" id=1]
 [ext_resource path="res://game/HUD.tscn" type="PackedScene" id=2]
@@ -9,11 +9,15 @@
 [ext_resource path="res://game/Menu_CustomerOrder.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/Menu_NPCDialog.tscn" type="PackedScene" id=8]
 [ext_resource path="res://core/Navigation2D.gd" type="Script" id=9]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 493.419, 286.869, 317.575, 380.993, 192.466, 391.544, 123.806, 193.819, 360.307, 204.158, 519.266, 237.759, 524.436, 148.587, 570.961, 138.248, 613.608, 189.942, 228.642, 454.853, 403.494, 409.632, 505.051, 385.088, 551.213, 492.536, 594.223, 447.121 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 5, 4 ), PoolIntArray( 1, 9, 2 ), PoolIntArray( 10, 1, 0, 11 ), PoolIntArray( 12, 10, 11, 13 ) ]
 outlines = [ PoolVector2Array( 123.806, 193.819, 360.307, 204.158, 524.436, 148.587, 570.961, 138.248, 613.608, 189.942, 519.266, 237.759, 493.419, 286.869, 505.051, 385.088, 594.223, 447.121, 551.213, 492.536, 403.494, 409.632, 317.575, 380.993, 228.642, 454.853, 192.466, 391.544 ) ]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 10 )
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
@@ -46,14 +50,8 @@ scale = Vector2( 0.9, 0.9 )
 position = Vector2( 620.044, 466.823 )
 
 [node name="Menu_Order" parent="." instance=ExtResource( 7 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -160.0
-margin_right = 175.0
-margin_bottom = 160.0
+margin_top = -200.0
+margin_bottom = 200.0
 
 [node name="Menu_NPCDialog" parent="." instance=ExtResource( 8 )]
 visible = false
@@ -64,3 +62,11 @@ script = ExtResource( 9 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
+
+[node name="Button_EndTurn" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 554.0
+margin_right = 129.0
+margin_bottom = 591.0
+custom_fonts/font = SubResource( 2 )
+text = "End Turn"

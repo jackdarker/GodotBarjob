@@ -9,10 +9,10 @@ func _ready():
 
 # The 'click' event is a custom input action defined in
 # Project > Project Settings > Input Map tab
-func _input(event):
-	if not event.is_action_pressed('click'):
-		return
-	_update_navigation_path($Character.position, get_local_mouse_position())
+#func _input(event):
+#	if not event.is_action_pressed('click'):
+#		return
+#	_update_navigation_path($Character.position, get_local_mouse_position())
 
 
 func _update_navigation_path(start_position, end_position):

@@ -5,9 +5,9 @@ const NewCustomer = preload("res://game/State_NewCustomerRequest.gd")
 const Dlgwelcome = preload("res://game/Dialogs/DialogTutorial1.gd")
 
 var sm_Game:StateMachine = null
-
-#var sm = null
+var _Orders:Orders
 var tableArr=[]
+var _waitressAtTable = null
 var _barkeeper:Barkeeper
 var _player:Waitress setget ,getPlayer
 var _menu_order:Menu_CustomerOrder setget ,getMenu_Order
@@ -20,6 +20,7 @@ func getMenu_Order():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_Orders = Orders.new()
 	sm_Game=SM_Game.new()
 	sm_Game.set_target(self)
 	sm_Game.register_state(S_Welcome.new())
@@ -27,6 +28,8 @@ func _ready():
 	sm_Game.register_state(S_PlaceOrder.new())
 	sm_Game.register_state(S_TakeOrder.new())
 	sm_Game.register_state(S_Walk.new())
+	sm_Game.register_state(S_PickupDrinks.new())
+	sm_Game.register_state(S_ServeDrinks.new())
 	
 	_player = get_node("Waitress")
 	_barkeeper = get_node("Barkeeper")
@@ -34,10 +37,12 @@ func _ready():
 	_barkeeper.connect("WaitressArrived",sm_Game,"onInteract")
 	_menu_order = get_node("Menu_Order")
 	_menu_order.connect("Done",sm_Game,"onInteract")
+	get_node("Button_EndTurn").connect("pressed",self,endTurn())
 	
 	
 	for table in get_node("Tables").get_children():
 		tableArr.push_back(table)
+		_Orders.createCustomer(table.TableID)
 		
 	var arrlen=tableArr.size()
 	
@@ -48,12 +53,24 @@ func _ready():
 	sm_Game.transition("Tut1")
 
 func showOrderTakeMenu():
-	_menu_order.set_placeOrder(false)
-	_menu_order.popup()
+	var customer:Orders.Customer = _Orders.getCustomerForTable(_waitressAtTable.TableID)
+	_menu_order.showOrderTakeMenu(customer)
 
+func onOrderTakeMenuDone():
+	_Orders.takeOrder(_waitressAtTable.TableID, _menu_order.get_order())
+	
 func showOrderPlaceMenu():
-	_menu_order.set_placeOrder(true)
-	_menu_order.popup()
+	_menu_order.showOrderPlaceMenu(_Orders.newOrders)
+
+func onOrderPlaceMenuDone():
+	var _order:Orders = _menu_order.get_order()
+	if(_order != null):
+		_Orders.waitingOrders.append(_order)
+
+
+
+func endTurn():
+	pass
 
 class SM_Game:
 	extends StateMachine
@@ -65,9 +82,7 @@ class SM_Game:
 
 class S_Idle:
 	extends State
-	"""
-	no customer
-	"""
+	
 	static func getID():
 		return("idle")
 		
@@ -83,6 +98,7 @@ class S_Walk:
 		
 	func onInteract(obj):
 		if(obj is Table):
+			get_target()._waitressAtTable = obj
 			go_to("takeOrder")
 		if(obj is Barkeeper):
 			go_to("placeOrder")
@@ -98,6 +114,7 @@ class S_TakeOrder:
 		get_target().showOrderTakeMenu()
 
 	func onInteract(obj):
+		get_target().onOrderTakeMenuDone()
 		go_to("idle")
 
 class S_PlaceOrder:
@@ -108,9 +125,37 @@ class S_PlaceOrder:
 	func on_enter(target) -> void:
 		get_target().showOrderPlaceMenu()
 
+	#called when Order got placed
 	func onInteract(obj):
-		go_to("idle")
+		get_target().onOrderPlaceMenuDone()
+		go_to("pickupDrinks")
+
+class S_PickupDrinks:
+	extends State
+	static func getID():
+		return("pickupDrinks")
 		
+	func on_enter(target) -> void:
+		get_target().showPickupDrinkMenu()
+
+	#called when Order got placed
+	func onInteract(obj):
+		get_target().onPickupDrinkMenuDone()
+		go_to("idle")
+
+class S_ServeDrinks:
+	extends State
+	static func getID():
+		return("serveDrinks")
+		
+	func on_enter(target) -> void:
+		get_target().showServeDrinkMenu()
+
+	#called when Order got placed
+	func onInteract(obj):
+		get_target().onServeDrinkMenuDone()
+		go_to("idle")
+
 class S_Welcome:
 	extends State
 	var _dlg:DialogScene

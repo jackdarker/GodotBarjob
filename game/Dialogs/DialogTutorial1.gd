@@ -5,7 +5,9 @@ enum {STAGE_START = 0,
 	STAGE_WELCOME = 10, 
 	STAGE_END = 15,
 	STAGE_SKIP_TUTORIAL = 20,
-	STAGE_TUTORIAL1 = 30
+	STAGE_TUTORIAL1 = 30,
+	STAGE_TUTORIAL2 = 40,
+	STAGE_TUTORIAL3 = 50
 	}
 
 func _ready():
@@ -27,12 +29,18 @@ func _HandleChoice(ActualStageID:int, ChoiceID:int):
 			addChoice(0,"Next","")
 			match ChoiceID:
 				0:
-					_Stage.init(STAGE_END,"So no tutorial", _choices)
+					_Stage.init(STAGE_END,"So no tutorial for you.", _choices)
 				_:
-					_Stage.init(STAGE_TUTORIAL1,"You have to ask the customer...", _choices)
+					_Stage.init(STAGE_TUTORIAL1,"Walk up to the guests at the table, greet them and ask what they want to drink. Then come back to the bar and give me those orders.", _choices)
 		STAGE_TUTORIAL1:
 			addChoice(0,"Next","")
-			_Stage.init(STAGE_END,"tutorial done", _choices)
+			_Stage.init(STAGE_TUTORIAL2,"I will prepare those drinks and put them here for you for pick up.\n This will take a while but you should move on serving the preped drinks or taking more orders.", _choices)
+		STAGE_TUTORIAL2:
+			addChoice(0,"Next","")
+			_Stage.init(STAGE_TUTORIAL3,"Serve the drinks to the customers. Make sure to remember what they ordered. \n Failing to do so will surely reduce your tip.", _choices)
+		STAGE_TUTORIAL3:
+			addChoice(0,"Finish","")
+			_Stage.init(STAGE_END,"And remember: the customer is always right.", _choices)
 		STAGE_END:
 			scene_finished()
 			return

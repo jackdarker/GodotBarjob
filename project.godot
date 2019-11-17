@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/game.gd"
 }, {
+"base": "Node2D",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://game/HUD.gd"
+}, {
 "base": "PopupDialog",
 "class": "Menu_CustomerOrder",
 "language": "GDScript",
@@ -97,6 +102,7 @@ _global_script_class_icons={
 "DialogResponse": "",
 "DialogScene": "",
 "Game": "",
+"HUD": "",
 "Menu_CustomerOrder": "",
 "Menu_NPCDialog": "",
 "NavigationOnClick": "",

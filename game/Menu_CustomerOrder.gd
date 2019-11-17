@@ -15,20 +15,21 @@ var _mode:int #see enum above
 #func get_PlaceOrder():
 #	return _placeOrder
 	
-var _drinks = []
-var _order:Orders.Order = null setget ,get_order
-func get_order():
-	return(_order)
+var _drinks = [] setget ,get_drinks
+func get_drinks():
+	return(_drinks)
+	
+#var _order:Orders.Order = null setget ,get_order
+#func get_order():
+#	return(_order)
 
 #display for customer ordering drinks	
 func showOrderTakeMenu(customer:Orders.Customer):
 	_mode=ORDER_TAKE
 	_drinks = []
-	customer=customer
 	if(customer!=null):
-		_order = customer._newOrder
-		if(_order !=null):
-			_drinks = _order._Drinks
+		if(customer._newOrder !=null):
+			_drinks = customer._newOrder._Drinks
 	self.popup()
 	
 #display for placing order at bar	
@@ -36,7 +37,7 @@ func showOrderPlaceMenu(orders:Orders):
 	_mode=ORDER_PLACE
 	_drinks = []
 	for order in orders.newOrders:
-		for drink in order._drinks:
+		for drink in order._Drinks:
 			_drinks.push_back(drink)
 	self.popup()
 
@@ -45,7 +46,7 @@ func showOrderPickupMenu(orders:Orders):
 	_mode=ORDER_PICKUP
 	_drinks = []
 	for order in orders.outOrders:
-		for drink in order._drinks:
+		for drink in order._Drinks:
 			_drinks.push_back(drink)
 	self.popup()
 
@@ -54,7 +55,7 @@ func showOrderServeMenu(orders:Orders):
 	_mode=ORDER_SERVE
 	_drinks = []
 	for order in orders.deliveringOrders:
-		for drink in order._drinks:
+		for drink in order._Drinks:
 			_drinks.push_back(drink)
 	self.popup()
 

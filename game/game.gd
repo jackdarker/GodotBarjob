@@ -52,7 +52,7 @@ func _ready():
 	_menu_order.connect("Done",sm_Game,"onInteract")
 	self.connect("updateTip",_hud,"updateTip")
 	self.connect("updateClock",_hud,"updateClock")
-	
+	self.connect("updateClock",_barkeeper,"updateClock")
 	
 	for table in get_node("Tables").get_children():
 		tableArr.push_back(table)

@@ -40,6 +40,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="Tables" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = -20
 
 [node name="BarTable1" parent="Tables" instance=ExtResource( 6 )]

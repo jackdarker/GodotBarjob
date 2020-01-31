@@ -36,4 +36,5 @@ visible = false
 position = Vector2( 43.4, -50 )
 z_index = -1
 [connection signal="area_entered" from="." to="." method="_on_BarTable_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_BarTable1_area_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

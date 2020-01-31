@@ -3,8 +3,8 @@
 [ext_resource path="res://game/Waitress.gd" type="Script" id=1]
 [ext_resource path="res://art/Avatars/An_Easy_Going_Cartoon_Businesswoman.svg" type="Texture" id=2]
 [ext_resource path="res://art/Avatars/walk.svg" type="Texture" id=3]
-[ext_resource path="res://art/Avatars/clock.svg" type="Texture" id=4]
-[ext_resource path="res://art/Avatars/Question.svg" type="Texture" id=5]
+[ext_resource path="res://art/Avatars/Question.svg" type="Texture" id=4]
+[ext_resource path="res://art/Avatars/clock.svg" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.0002
@@ -19,12 +19,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "clock",
+"name": "question",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "question",
+"name": "clock",
 "speed": 5.0
 } ]
 

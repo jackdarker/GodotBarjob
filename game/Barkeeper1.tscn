@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/Barkeeper1.gd" type="Script" id=1]
 [ext_resource path="res://art/Bar/Barkeeper1.svg" type="Texture" id=2]
+[ext_resource path="res://game/SpeechBubble.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 144.636, 66.5169 )
+extents = Vector2( 144.636, 65.0849 )
 
 [node name="Barkeeper" type="Area2D"]
 script = ExtResource( 1 )
@@ -13,19 +14,26 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Button_In" type="TextureButton" parent="."]
-margin_left = 37.2313
-margin_top = -20.0476
-margin_right = 127.231
-margin_bottom = 73.9524
-
-[node name="Button_Out" type="TextureButton" parent="."]
-margin_left = -100.238
-margin_top = -75.8946
-margin_right = -10.2381
-margin_bottom = 18.1054
+margin_left = -120.0
+margin_top = -50.0
+margin_right = 128.0
+margin_bottom = 74.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4.29593, 14.3197 )
 shape = SubResource( 1 )
+
+[node name="Text" parent="." instance=ExtResource( 3 )]
+position = Vector2( 61.5819, -66.5169 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = -126.0
+margin_top = -96.0
+margin_right = -17.0
+margin_bottom = -10.0
+bbcode_enabled = true
+bbcode_text = "nothing"
+text = "nothing"
 [connection signal="area_entered" from="." to="." method="_on_Barkeeper_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Barkeeper_area_exited"]
 [connection signal="pressed" from="Button_In" to="." method="_on_Button_In_pressed"]
-[connection signal="pressed" from="Button_Out" to="." method="_on_Button_Out_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://game/Menu_CustomerOrder.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://art/Bar/WineRed.svg" type="Texture" id=3]
 
 [sub_resource type="Theme" id=1]
 
@@ -77,17 +78,18 @@ columns = 2
 
 [node name="Button1" type="Button" parent="Panel/GridContainer"]
 margin_right = 262.0
-margin_bottom = 26.0
+margin_bottom = 46.0
 size_flags_horizontal = 3
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
 text = "iioiouöhj"
+icon = ExtResource( 3 )
 clip_text = true
 
 [node name="Button2" type="Button" parent="Panel/GridContainer"]
 margin_left = 278.0
 margin_right = 540.0
-margin_bottom = 26.0
+margin_bottom = 46.0
 size_flags_horizontal = 3
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
@@ -95,9 +97,9 @@ text = "iioiouöhj"
 clip_text = true
 
 [node name="Button3" type="Button" parent="Panel/GridContainer"]
-margin_top = 42.0
+margin_top = 62.0
 margin_right = 262.0
-margin_bottom = 68.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
@@ -106,9 +108,9 @@ clip_text = true
 
 [node name="Button4" type="Button" parent="Panel/GridContainer"]
 margin_left = 278.0
-margin_top = 42.0
+margin_top = 62.0
 margin_right = 540.0
-margin_bottom = 68.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
@@ -116,9 +118,9 @@ text = "iioiouöhj"
 clip_text = true
 
 [node name="Button5" type="Button" parent="Panel/GridContainer"]
-margin_top = 84.0
+margin_top = 104.0
 margin_right = 262.0
-margin_bottom = 110.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
@@ -127,9 +129,9 @@ clip_text = true
 
 [node name="Button6" type="Button" parent="Panel/GridContainer"]
 margin_left = 278.0
-margin_top = 84.0
+margin_top = 104.0
 margin_right = 540.0
-margin_bottom = 110.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
@@ -137,9 +139,9 @@ text = "iioiouöhj"
 clip_text = true
 
 [node name="Button7" type="Button" parent="Panel/GridContainer"]
-margin_top = 126.0
+margin_top = 146.0
 margin_right = 262.0
-margin_bottom = 152.0
+margin_bottom = 172.0
 size_flags_horizontal = 3
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
@@ -148,9 +150,9 @@ clip_text = true
 
 [node name="Button8" type="Button" parent="Panel/GridContainer"]
 margin_left = 278.0
-margin_top = 126.0
+margin_top = 146.0
 margin_right = 540.0
-margin_bottom = 152.0
+margin_bottom = 172.0
 size_flags_horizontal = 3
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )

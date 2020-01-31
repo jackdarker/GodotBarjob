@@ -3,6 +3,7 @@ extends Node
 
 var rng = RandomNumberGenerator.new()
 var drinks = ["Wine", "Beer", "Shot", "Coffee"]
+
 var newOrders = []	#Waitress collected these orders now 
 var waitingOrders = []	#orders waiting at bar for preparing 
 var preppingOrders = [] #orders currently processed by barkeeper
@@ -22,15 +23,29 @@ func getRandomDrinks():
 #collected the orders from customer
 func takeOrder(TableID:int):
 	var customer = getCustomerForTable(TableID)
-	customer._placedOrder=customer._newOrder
-	newOrders.push_back(customer._placedOrder)
+	if(customer._newOrder != null):
+		customer._placedOrder=customer._newOrder
+		newOrders.push_back(customer._placedOrder)
 	customer._newOrder=null
 
-func placeOrder(order:Order):
-	if(order != null):
+#waitress place the orders at bar
+func placeOrder(orders):
+	if(newOrders.size()<=0):
+		return
+	for order in newOrders:
 		waitingOrders.append(order)
 		newOrders.erase(order)
 
+#barkeeper creates drink and place them at bar for pickup
+func prepOrder(order:Order):
+	for drink in order._Drinks:
+		outOrders.append(drink)
+
+	preppingOrders.erase(order)
+		
+	return
+		
+#waitress picks up drinks from bar
 func pickupOrder(drinks):
 	if(drinks != null):
 		for drink in drinks:
@@ -96,10 +111,19 @@ func getNewOrderFromCustomer(customer:Customer)->Order:
 func getPlacedOrderFromCustomer(customer:Customer)->Order:
 	return(customer._placedOrder)
 
+#calcualte time in min between clock (c=b-a)
+func calcDeltaTime(a:float, b:float) -> float:
+	return(b-a)
 
 class Order:
 	var _custID:int
 	var _Drinks = []
+	var _placeTime:float	#time the order was taken by waitress
+	var _preppTime:float	#time the prepping was started 
+
+class Drink:
+	var _name:String
+	var _imgage:Texture
 
 class Customer:
 	var _custID:int

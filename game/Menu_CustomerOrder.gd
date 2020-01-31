@@ -45,17 +45,15 @@ func showOrderPlaceMenu(orders:Orders):
 func showOrderPickupMenu(orders:Orders):
 	_mode=ORDER_PICKUP
 	_drinks = []
-	for order in orders.outOrders:
-		for drink in order._Drinks:
-			_drinks.push_back(drink)
+	for drink in orders.outOrders:
+		_drinks.push_back(drink)
 	self.popup()
 
 #display for serving drinks to customer	
 func showOrderServeMenu(orders:Orders):
 	_mode=ORDER_SERVE
 	_drinks = []
-	for order in orders.deliveringOrders:
-		for drink in order._Drinks:
+	for drink in orders.deliveringOrders:
 			_drinks.push_back(drink)
 	self.popup()
 
@@ -77,7 +75,8 @@ func _on_Menu_Control_about_to_show():
 		Bt.set_toggle_mode(true)
 		Bt.set_disabled(_mode==ORDER_TAKE || _mode==ORDER_PLACE)
 		if(i>=0):
-			Bt.set_text(_drinks[i])
+			Bt.set_text(_drinks[i]._name)
+			Bt.set_icon(_drinks[i]._image)
 			Bt.set_visible(true)
 		else:
 			Bt.set_visible(false)

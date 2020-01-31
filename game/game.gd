@@ -44,7 +44,8 @@ func _ready():
 	_barkeeper = get_node("Barkeeper")
 	_menu_order = get_node("Menu_Order")
 	_hud = get_node("HUD")
-	
+
+	_barkeeper.init(_Orders)
 	#connect events
 	_barkeeper.connect("onClick",sm_Game,"onGoto")
 	_barkeeper.connect("WaitressArrived",sm_Game,"onInteract")
@@ -61,7 +62,7 @@ func _ready():
 		_Orders.createCustomer(table.TableID)
 
 	#start game	
-	#sm_Game.transition("Tut1")
+	#sm_Game.transition("Tut1")	#game tutorial intro
 	sm_Game.transition(S_Start.getID())
 	
 func showOrderTakeMenu():

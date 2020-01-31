@@ -10,9 +10,16 @@ func _ready():
 
 func _on_TextureButton_pressed():
 	emit_signal("onClick", self)	
+	if(_alreadyThere):	#workaround if waitress already ar target
+		emit_signal("WaitressArrived", self)
 
+var _alreadyThere:bool = false
 func _on_BarTable_area_entered(area):
+	_alreadyThere = true
 	emit_signal("WaitressArrived", self)	
+
+func _on_BarTable1_area_exited(area):
+	_alreadyThere = false
 
 class S_Empty:
 	extends State
@@ -22,5 +29,4 @@ class S_Empty:
 
 class S_WaitForOrder:
 	extends State
-
 

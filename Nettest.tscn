@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://core/Navigation/PathSegment.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 57.2802, 166.893, 0, 0, 0, 0, 235.975, 202.09, 0, 0, 0, 0, 262.148, 167.795 )
+}
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 20, 20, 20 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 48.1984, 40.1517 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 46.2548, 87.0617, 384.888, 79.3501 )
+texture_mode = 0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2( 169.4, 142.78 )
+mesh = SubResource( 2 )
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2( 274.349, 135.051 )
+mesh = SubResource( 2 )
+
+[node name="Net" type="Node" parent="."]
+
+[node name="Node" type="Node" parent="Net"]
+script = ExtResource( 1 )
+From = NodePath("../../MeshInstance2D")
+To = NodePath("../../MeshInstance2D2")

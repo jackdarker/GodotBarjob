@@ -17,21 +17,27 @@ func _ready():
 func init(orders:Orders):
 	_orders=orders	
 
-func _on_TextureButton_pressed():
-	emit_signal("onClick", self)	
+#func _on_TextureButton_pressed():
+#	emit_signal("onClick", self)	
 
 func _on_Button_In_pressed():
 	emit_signal("onClick", self)
+	if(_alreadyThere):	#workaround if waitress already ar target
+		emit_signal("WaitressArrived", self)
 
-func _on_Button_Out_pressed():
-	emit_signal("onClick", self)
-
-
+var _alreadyThere:bool = false
 func _on_Barkeeper_area_entered(area):
+	_alreadyThere= true
+	get_node("RichTextLabel").set_bbcode(("[img]{str}[/img]").format({"str":Resources.Path_WineRed})  )
+	get_node("Text").set_bbcode(Resources.Path_WineRed )
 	emit_signal("WaitressArrived", self)
+
+func _on_Barkeeper_area_exited(area):
+	_alreadyThere = false
 
 func updateClock(total:float):
 	sm.updateClock(total)
+	#for drink in _orders.outOrders
 
 class SM_Barkeeper:
 	extends StateMachine
@@ -43,7 +49,20 @@ class S_Idle:
 	
 	static func getID():
 		return("idle")
-
+	
+	#check if there are waiting orders 	
+	func updateClock(total:float):
+		var _orders:Orders = get_target()._orders
+		if(_orders.waitingOrders.size()<=0):
+			return
+		
+		for order in _orders.waitingOrders:
+			order._preppTime = total+10	#todo: fixed time?
+			_orders.preppingOrders.append(order)
+			_orders.waitingOrders.erase(order)
+		
+		go_to("working")
+		return
 
 
 class S_Working:
@@ -51,3 +70,17 @@ class S_Working:
 	
 	static func getID():
 		return("working")
+	
+	#prep the drinks
+	func updateClock(total:float):
+		var _orders:Orders = get_target()._orders
+		if(_orders.preppingOrders.size()<=0):
+			go_to("idle")
+			return
+			
+		for order in _orders.preppingOrders:
+			var _ready:bool = _orders.calcDeltaTime(order._preppTime,total)>0
+			if(_ready):
+				_orders.prepOrder(order)
+		
+		return
